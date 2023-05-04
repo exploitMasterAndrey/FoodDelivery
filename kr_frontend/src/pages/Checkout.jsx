@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
 import CommonSection from "../components/UI/common-section/CommonSection";
 import Helmet from "../components/Helmet/Helmet";
 import { createOrder } from "../api";
+import { cartActions } from "../store/shopping-cart/cartSlice";
 
 import "../styles/checkout.css";
 
 const Checkout = () => {
+  const dispatch = useDispatch();
   const [enterName, setEnterName] = useState("");
   const [enterEmail, setEnterEmail] = useState("");
   const [enterNumber, setEnterNumber] = useState("");
@@ -32,22 +34,15 @@ const Checkout = () => {
         total: totalAmount
       };
 
-      createOrder(newOrder).then(() => {
-        localStorage.setItem("cartItems", JSON.stringify([]));
-        localStorage.setItem("totalAmount", JSON.stringify(0));
-        localStorage.setItem("totalQuantity", JSON.stringify(0));
-
-        document.getElementById("fio").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("number").value = "";
-        document.getElementById("address").value = "";
+      dispatch(cartActions.clearCart());
         
-        setEnterName("");
-        setEnterEmail("");
-        setEnterNumber("");
-        setEnterAddress("");
-      })
-  }
+      setEnterName("");
+      setEnterEmail("");
+      setEnterNumber("");
+      setEnterAddress("");
+
+      createOrder(newOrder).then()
+    }
   };
 
   return (
@@ -64,6 +59,7 @@ const Checkout = () => {
                     id="fio"
                     type="text"
                     placeholder="Введите ваше ФИО"
+                    value={enterName}
                     required
                     onChange={(e) => setEnterName(e.target.value)}
                   />
@@ -74,6 +70,7 @@ const Checkout = () => {
                     id="email"
                     type="email"
                     placeholder="Введите ваш email"
+                    value={enterEmail}
                     required
                     onChange={(e) => setEnterEmail(e.target.value)}
                   />
@@ -83,6 +80,7 @@ const Checkout = () => {
                     id="number"
                     type="number"
                     placeholder="Номер телефона"
+                    value={enterNumber}
                     required
                     onChange={(e) => setEnterNumber(e.target.value)}
                   />
@@ -92,6 +90,7 @@ const Checkout = () => {
                     id="address"
                     type="text"
                     placeholder="Адрес"
+                    value={enterAddress}
                     required
                     onChange={(e) => setEnterAddress(e.target.value)}
                   />

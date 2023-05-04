@@ -210,7 +210,6 @@ const Tr = (props) => {
                 <i class="ri-delete-bin-line" onClick={deleteItem}></i>
             </td>
             <td className="text-center cart__item-del">
-                {/* <i class="bi bi-pencil" ></i> */}
                 <button onClick={editItem}>Редактировать</button>
             </td>
         </tr>
