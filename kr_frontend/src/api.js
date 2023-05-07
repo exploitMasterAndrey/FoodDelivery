@@ -1,4 +1,4 @@
-const base_url = "http://localhost:8080"
+const base_url = `http://${process.env.REACT_APP_SERVER_URL}`
 
 export async function getAllProducts() {
     const response = await fetch(base_url + "/api/v1/products");
