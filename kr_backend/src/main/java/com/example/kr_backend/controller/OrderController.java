@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://food-delivery-client-w6x9.onrender.com")
 @RequestMapping("/api/v1/orders")
 public class OrderController {
     private final OrderService orderService;

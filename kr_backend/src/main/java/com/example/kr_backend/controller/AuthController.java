@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://food-delivery-client-w6x9.onrender.com")
 public class AuthController {
     private final UserService userService;
     private final AuthenticationManager authenticationManager;

@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/products")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://food-delivery-client-w6x9.onrender.com")
 public class ProductController {
     private final ProductService productService;
     @GetMapping
