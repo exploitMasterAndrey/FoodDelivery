@@ -1,6 +1,7 @@
 const base_url = `http://${process.env.REACT_APP_SERVER_URL}`
 
 export async function getAllProducts() {
+    console.log(base_url)
     const response = await fetch(base_url + "/api/v1/products");
     return await response.json();
 }
