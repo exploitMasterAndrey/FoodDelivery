@@ -1,4 +1,4 @@
-const base_url = "http://localhost:8080"
+const base_url = "http://45.94.116.38:9800"
 
 export async function getAllProducts() {
     const response = await fetch(base_url + "/api/v1/products");
