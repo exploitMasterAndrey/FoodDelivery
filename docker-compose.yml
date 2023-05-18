@@ -7,7 +7,7 @@ services:
       context: ./kr_backend
     container_name: server-lobankov
     depends_on:
-      - postgres
+      - postgres-lobankov
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-lobankov:5432/postgres-lobankov
       - SPRING_DATASOURCE_USERNAME=postgres
