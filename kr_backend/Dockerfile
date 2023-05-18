@@ -6,7 +6,7 @@ COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 RUN ./mvnw dependency:go-offline
 
-EXPOSE 1010
+EXPOSE 9800
 
 COPY src ./src
 
